@@ -39,7 +39,47 @@
 		console.log(data[0].region);
 		
 		
-		$("table").append("<tr><td></td><td></td></tr>");
+		$("table").append("<tr><td>"+data[0].name+"</td><td>"+data[0].region+"</td></tr>");
+		$("table").append("<tr><td>"+data[1].name+"</td><td>"+data[1].region+"</td></tr>");
+		$("table").append("<tr><td>"+data[2].name+"</td><td>"+data[2].region+"</td></tr>");
+		$("table").append("<tr><td>"+data[3].name+"</td><td>"+data[3].region+"</td></tr>");
+		$("table").append("<tr><td>"+data[4].name+"</td><td>"+data[4].region+"</td></tr>");
+		
+		//for문 사용해서 출력
+		for(var i = 0 ; i < data.length ; i ++){
+			$("table").append("<tr><td>"+data[i].name+"</td><td>"+data[i].region+"</td></tr>");
+		}
+		
+		// jquery.each(객체/배열, 콜백함수); <=> $.each(객체/배열, 콜백함수);
+		
+		$.each(data, function(idx, value){
+			// data 객체 배열에 순차적으로 접근 할때
+			// 배열의 크기만큼 처리
+// 			console.log(data);
+// 			console.log(idx);
+// 			console.log(value); // data[idx]
+			
+			// 테이블 태그에 요소를 추가
+			$("table").append("<tr><td>"+value.name+"</td><td>"+value.region+"</td></tr>");
+		});
+		
+		$.each(data, function(idx, value){			
+			// 테이블 태그에 요소를 추가
+			$("table").append(function(){
+				var result = "<tr>";
+					result += "<td>";
+					result += value.name;
+					result += "</td>"
+					result += "<td>";
+					result += value.region;
+					result += "</td>"
+					
+				return result;
+			});
+		});
+		
+		
+		
 		
 		
 		
