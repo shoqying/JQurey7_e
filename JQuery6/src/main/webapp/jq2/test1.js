@@ -81,8 +81,61 @@ $(function(){
 		
 		
 	}); // 제이쿼리 끝
+	
+	
+	/*효과 - jQuery*/
+	$(function(){
+		
+		$("h1").click(function(){
+				$("h2").show();		
+			});
+			
+			//h2 클릭시 이벤트 발생
+			$("h2").click(function(){
+				
+//				$("h2").hide();
+//              slideToggle()/fadeToggle()
+				$(this).next().toggle("slow", function(){
+					// 콜백함수 - 적용하는 효과가 완전히(100%) 실행후 동작하는 함수
+					alert("토글 끝");
+				});
+				
+			});
+		//	$("h2").on("click",function(){
+		//		
+		//	});
+		
+		
+		
+		
+		$("#aniDiv").click(function(){
+//			alert("#aniDiv 클릭!");
+			
+			// 기존 요소의 가로 세로 길이 측정
+			var width = $(this).css("width");
+			var height = $(this).css("height");
+			
+			// 기존의 값 + 50
+//			$(this).css({
+//				"width" : parseInt(width) + 50,
+//				"height" : parseInt(height) + 50
+//			});
+			$(this).animate({
+				"width" : parseInt(width) + 50,
+				"height" : parseInt(height) + 50
+			});
+			
+		});
 
+		
+		
+		
+	}); // 제이쿼리 끝
+	
 
+      $(document).ready(function(){
+        $(".slider").bxSlider();
+      });
 
 
 
